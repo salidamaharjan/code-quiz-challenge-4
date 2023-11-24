@@ -2,6 +2,7 @@
 var questionTitle = document.querySelector(".question-title");
 var answerContainer = document.querySelector(".answer-container");
 var options = document.querySelectorAll(".option");
+var display = document.querySelector(".display-correctness");
 
 //array of object containing question and answer
 var questionsArr = [
@@ -98,9 +99,9 @@ answerContainer.addEventListener("click", function (event) {
   }
   //checking the data attribute of clicked element is correct or not to enter if block
   if (event.target.getAttribute("data-correct") === "correct") {
-    alert("correct");
+    display.textContent = "correct";
   } else {
-    alert("incorrect");
+    display.textContent = "incorrect";
   }
   indexOfQuestionsArr++;
   //prepares question when index of questionArr exists
