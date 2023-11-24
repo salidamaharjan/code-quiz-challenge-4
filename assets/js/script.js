@@ -129,5 +129,9 @@ var timeCount = setInterval(function () {
   if (time > 0) {
     time = time - 1;
     timer.textContent = time;
+  } else {
+    //stopping timer and hiding question when the value is less than 0
+    clearInterval(timeCount);
+    questionSection.style.display = "none";
   }
 }, 1000);
