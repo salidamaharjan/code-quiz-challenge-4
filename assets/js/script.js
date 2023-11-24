@@ -72,8 +72,6 @@ var questionsArr = [
 //created to change in each click
 var indexOfQuestionsArr = 0;
 
-
-
 //calling a function
 prepareQuestion();
 
@@ -85,7 +83,10 @@ function prepareQuestion() {
   for (var i = 0; i < questionsArr[indexOfQuestionsArr].answer.length; i++) {
     options[i].textContent = questionsArr[indexOfQuestionsArr].answer[i].name;
     //setting data attribute to li element which is dynamic
-    options[i].setAttribute("data-correct",questionsArr[indexOfQuestionsArr].answer[i].checkCorrect);
+    options[i].setAttribute(
+      "data-correct",
+      questionsArr[indexOfQuestionsArr].answer[i].checkCorrect
+    );
   }
 }
 
@@ -95,9 +96,16 @@ answerContainer.addEventListener("click", function (event) {
   if (event.target.matches("li") === false) {
     return;
   }
+  //checking the data attribute of clicked element is correct or not to enter if block
+  if (event.target.getAttribute("data-correct") === "correct") {
+    alert("correct");
+  } else {
+    alert("incorrect");
+  }
   indexOfQuestionsArr++;
   //prepares question when index of questionArr exists
   if (indexOfQuestionsArr < questionsArr.length) {
     prepareQuestion();
   }
+  
 });
