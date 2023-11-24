@@ -34,10 +34,14 @@ function prepareQuestion() {
 }
 
 //using add event listener to change the question on click
-answerContainer.addEventListener("click", function () {
+answerContainer.addEventListener("click", function (event) {
+//checking if the clicked element is li element
+  if (event.target.matches("li") === false) {
+    return;
+  }
   indexOfQuestionsArr++;
   //prepares question when index of questionArr exists
-  if(indexOfQuestionsArr < questionsArr.length){
-  prepareQuestion();
+  if (indexOfQuestionsArr < questionsArr.length) {
+    prepareQuestion();
   }
 });
