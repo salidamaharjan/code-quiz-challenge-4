@@ -12,15 +12,23 @@ var questionsArr = [
   "Where do you live?",
   "What is you hobby?",
 ];
+prepareQuestion();
 
-//adding the question to h1 tag
-questionTitle.textContent = "What is your name?";
-//looping the option to assign a different values from answerArr
+
+//question and answer placed in a function to execute when called
+function prepareQuestion() {
+    //looping question
+for(var i = 0; i < questionsArr.length; i++) {
+    questionTitle.textContent = questionsArr[i];
+    console.log("questionTitle", questionTitle.textContent);
+}//looping the option to assign a different values from answerArr
 for (var i = 0; i < answersArr.length; i++) {
-  options[i].textContent = answersArr[i];
+    options[i].textContent = answersArr[i];
+  }
 }
+
 
 //using add event listener to change the question on click
 answerContainer.addEventListener("click", function () {
-    questionTitle.textContent = questionsArr[1];
+   
 });
