@@ -85,7 +85,7 @@ var questionsArr = [
   },
 ];
 
-var time = 5;
+var time = 6000;
 var timeCount;
 
 //created to change in each click
@@ -124,7 +124,7 @@ function prepareQuestion() {
 //using add event listener to change the question on click
 answerContainer.addEventListener("click", function (event) {
   //checking if the clicked element is li element
-  if (event.target.matches("li") === false) {
+  if (event.target.matches("button") === false) {
     return;
   }
   //checking the data attribute of clicked element is correct or not to enter if block
@@ -177,16 +177,16 @@ startQuizBtn.addEventListener("click", function () {
     }
   }, 1000);
   //displays when the start button is clicked
-  startQuizBtn.style.display = "none";
+  startQuizContainer.style.display = "none";
   timerSection.style.display = "block";
-  questionSection.style.display = "block";
+  questionSection.style.display = "flex";
 });
 //reload the page when clicked restart button
 restartQuiz.addEventListener("click", function () {
   location.reload();
 });
 
-saveButton.addEventListener("click", function(){
-    localStorage.setItem(initial.value, time);
-    location.href = "./highscore.html";
-})
+saveButton.addEventListener("click", function () {
+  localStorage.setItem(initial.value, time);
+  location.href = "./highscore.html";
+});
