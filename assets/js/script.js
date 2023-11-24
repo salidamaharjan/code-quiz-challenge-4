@@ -110,3 +110,12 @@ answerContainer.addEventListener("click", function (event) {
   }
   
 });
+
+var timer = document.querySelector(".timer");
+var time = 5;
+timer.textContent = time;
+
+setInterval(function(){
+    time = time - 1;
+    timer.textContent = time;
+},1000)
