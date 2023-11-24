@@ -4,6 +4,10 @@ var answerContainer = document.querySelector(".answer-container");
 var options = document.querySelectorAll(".option");
 var display = document.querySelector(".display-correctness");
 
+var timer = document.querySelector(".timer");
+var time = 5;
+timer.textContent = time;
+
 //array of object containing question and answer
 var questionsArr = [
   {
@@ -100,8 +104,12 @@ answerContainer.addEventListener("click", function (event) {
   //checking the data attribute of clicked element is correct or not to enter if block
   if (event.target.getAttribute("data-correct") === "correct") {
     display.textContent = "correct";
+    time = time + 10;
+    timer.textContent = time;
   } else {
     display.textContent = "incorrect";
+    time = time - 5;
+    timer.textContent = time;
   }
   indexOfQuestionsArr++;
   //prepares question when index of questionArr exists
@@ -111,11 +119,12 @@ answerContainer.addEventListener("click", function (event) {
   
 });
 
-var timer = document.querySelector(".timer");
-var time = 5;
-timer.textContent = time;
+
 
 setInterval(function(){
+    //only deduct the time until its value is upto zero
+    if(time > 0){
     time = time - 1;
     timer.textContent = time;
-},1000)
+    }
+},1000);
