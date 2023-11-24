@@ -7,15 +7,66 @@ var options = document.querySelectorAll(".option");
 var questionsArr = [
   {
     question: "What is your name?",
-    answer: ["Salida", "Hari", "Ram", "Maharjan"],
+    answer: [
+      {
+        name: "Salida",
+        checkCorrect: "correct",
+      },
+      {
+        name: "Hari",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "Ram",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "Maharjan",
+        checkCorrect: "incorrect",
+      },
+    ],
   },
   {
     question: "Where do you live?",
-    answer: ["UK", "USA", "France", "Italy"],
+    answer: [
+      {
+        name: "UK",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "USA",
+        checkCorrect: "correct",
+      },
+      {
+        name: "France",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "Italy",
+        checkCorrect: "incorrect",
+      },
+    ],
   },
   {
     question: "What is you hobby?",
-    answer: ["Paint", "Cooking", "Dancing", "Listening Music"],
+    answer: [
+      {
+        name: "Cooking",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "Singing",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "Dancing",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "Listening Music",
+        checkCorrect: "correct",
+      },
+    ],
   },
 ];
 //created to change in each click
@@ -29,13 +80,13 @@ function prepareQuestion() {
 
   //looping the option to assign a different values from answerArr
   for (var i = 0; i < questionsArr[indexOfQuestionsArr].answer.length; i++) {
-    options[i].textContent = questionsArr[indexOfQuestionsArr].answer[i];
+    options[i].textContent = questionsArr[indexOfQuestionsArr].answer[i].name;
   }
 }
 
 //using add event listener to change the question on click
 answerContainer.addEventListener("click", function (event) {
-//checking if the clicked element is li element
+  //checking if the clicked element is li element
   if (event.target.matches("li") === false) {
     return;
   }
