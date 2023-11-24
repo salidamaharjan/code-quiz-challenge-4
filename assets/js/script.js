@@ -3,6 +3,7 @@ var questionTitle = document.querySelector(".question-title");
 var answerContainer = document.querySelector(".answer-container");
 var options = document.querySelectorAll(".option");
 var display = document.querySelector(".display-correctness");
+var questionSection = document.querySelector("#question-section");
 
 var timer = document.querySelector(".timer");
 var time = 5;
@@ -108,23 +109,23 @@ answerContainer.addEventListener("click", function (event) {
     timer.textContent = time;
   } else {
     display.textContent = "incorrect";
-    time = time - 5;
+    //preventing to count below 0 using Math.max() method
+    time = Math.max(0, time - 5);
     timer.textContent = time;
   }
   indexOfQuestionsArr++;
   //prepares question when index of questionArr exists
   if (indexOfQuestionsArr < questionsArr.length) {
     prepareQuestion();
+  } else {
+    questionSection.style.display = "none";
   }
-  
 });
 
-
-
-setInterval(function(){
-    //only deduct the time until its value is upto zero
-    if(time > 0){
+setInterval(function () {
+  //only deduct the time until its value is upto zero
+  if (time > 0) {
     time = time - 1;
     timer.textContent = time;
-    }
-},1000);
+  }
+}, 1000);
