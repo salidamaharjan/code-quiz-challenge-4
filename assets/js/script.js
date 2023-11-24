@@ -124,6 +124,9 @@ answerContainer.addEventListener("click", function (event) {
     //preventing to count below 0 using Math.max() method
     time = Math.max(0, time - 5);
     timer.textContent = time;
+    if(time <= 0) {
+        gameOver.style.display = "block";
+    }
   }
   indexOfQuestionsArr++;
   //calls prepare question function when index of questionArr exists
@@ -146,7 +149,7 @@ startQuiz.addEventListener("click", function () {
     if (time > 0) {
       time = time - 1;
       timer.textContent = time;
-      gameOver.style.display = "none";
+      
     } else {
       //stopping timer and hiding question when the value is less than 0
       clearInterval(timeCount);
