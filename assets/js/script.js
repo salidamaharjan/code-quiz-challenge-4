@@ -118,11 +118,13 @@ answerContainer.addEventListener("click", function (event) {
   if (indexOfQuestionsArr < questionsArr.length) {
     prepareQuestion();
   } else {
+    //stopping the timer when no question to display
+    clearInterval(timeCount);
     questionSection.style.display = "none";
   }
 });
 
-setInterval(function () {
+var timeCount = setInterval(function () {
   //only deduct the time until its value is upto zero
   if (time > 0) {
     time = time - 1;
