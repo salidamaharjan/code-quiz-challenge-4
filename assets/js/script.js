@@ -188,5 +188,5 @@ restartQuiz.addEventListener("click", function () {
 
 saveButton.addEventListener("click", function(){
     localStorage.setItem(initial.value, time);
-    location.href = "./highscore.html";
+    location.href = "./highscore/highscore.html";
 })
