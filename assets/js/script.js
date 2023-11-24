@@ -4,10 +4,18 @@ var answerContainer = document.querySelector(".answer-container");
 var options = document.querySelectorAll(".option");
 var display = document.querySelector(".display-correctness");
 var questionSection = document.querySelector("#question-section");
+var gameOver = document.querySelector(".game-over");
+var timerSection = document.querySelector(".timer-section");
 
 var timer = document.querySelector(".timer");
 var time = 5;
 timer.textContent = time;
+
+//only displaying start button
+gameOver.style.display = "none";
+questionSection.style.display = "none";
+timerSection.style.display = "none";
+
 
 //array of object containing question and answer
 var questionsArr = [
@@ -112,6 +120,7 @@ answerContainer.addEventListener("click", function (event) {
     //preventing to count below 0 using Math.max() method
     time = Math.max(0, time - 5);
     timer.textContent = time;
+
   }
   indexOfQuestionsArr++;
   //prepares question when index of questionArr exists
@@ -133,5 +142,6 @@ var timeCount = setInterval(function () {
     //stopping timer and hiding question when the value is less than 0
     clearInterval(timeCount);
     questionSection.style.display = "none";
+    gameOver.style.display = "block";
   }
 }, 1000);
