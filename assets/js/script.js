@@ -7,16 +7,17 @@ var questionSection = document.querySelector("#question-section");
 var gameOver = document.querySelector(".game-over");
 var timerSection = document.querySelector(".timer-section");
 var startQuiz = document.querySelector(".start-quiz");
+var obtainedScore = document.querySelector(".obtained-score");
 
 var timer = document.querySelector(".timer");
 var time = 5;
-var timeCount; 
+var timeCount;
 timer.textContent = time;
 
 //only displaying start button
 gameOver.style.display = "none";
 questionSection.style.display = "none";
-// timerSection.style.display = "none";
+timerSection.style.display = "none";
 
 //array of object containing question and answer
 var questionsArr = [
@@ -130,23 +131,29 @@ answerContainer.addEventListener("click", function (event) {
     //stopping the timer when no question to display
     clearInterval(timeCount);
     questionSection.style.display = "none";
+    //displaying score when no more question
+    obtainedScore.textContent = time;
+    gameOver.style.display = "none";
   }
 });
 
 //starting quiz when clicked start quiz button
 startQuiz.addEventListener("click", function () {
-    timeCount = setInterval(function () {
-        //only deduct the time until its value is upto zero
-        if (time > 0) {
-          time = time - 1;
-          timer.textContent = time;
-        } else {
-          //stopping timer and hiding question when the value is less than 0
-          clearInterval(timeCount);
-          questionSection.style.display = "none";
-          gameOver.style.display = "block";
-        }
-      }, 1000);
+  timeCount = setInterval(function () {
+    //only deduct the time until its value is upto zero
+    if (time > 0) {
+      time = time - 1;
+      timer.textContent = time;
+      gameOver.style.display = "none";
+    } else {
+      //stopping timer and hiding question when the value is less than 0
+      clearInterval(timeCount);
+      questionSection.style.display = "none";
+      gameOver.style.display = "block";
+      //display score when time out
+      obtainedScore.textContent = time;
+    }
+  }, 1000);
   startQuiz.style.display = "none";
   timerSection.style.display = "block";
   questionSection.style.display = "block";
