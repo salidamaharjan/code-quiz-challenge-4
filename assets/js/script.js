@@ -6,16 +6,17 @@ var display = document.querySelector(".display-correctness");
 var questionSection = document.querySelector("#question-section");
 var gameOver = document.querySelector(".game-over");
 var timerSection = document.querySelector(".timer-section");
+var startQuiz = document.querySelector(".start-quiz");
 
 var timer = document.querySelector(".timer");
 var time = 5;
+var timeCount; 
 timer.textContent = time;
 
 //only displaying start button
 gameOver.style.display = "none";
 questionSection.style.display = "none";
-timerSection.style.display = "none";
-
+// timerSection.style.display = "none";
 
 //array of object containing question and answer
 var questionsArr = [
@@ -120,7 +121,6 @@ answerContainer.addEventListener("click", function (event) {
     //preventing to count below 0 using Math.max() method
     time = Math.max(0, time - 5);
     timer.textContent = time;
-
   }
   indexOfQuestionsArr++;
   //prepares question when index of questionArr exists
@@ -133,15 +133,21 @@ answerContainer.addEventListener("click", function (event) {
   }
 });
 
-var timeCount = setInterval(function () {
-  //only deduct the time until its value is upto zero
-  if (time > 0) {
-    time = time - 1;
-    timer.textContent = time;
-  } else {
-    //stopping timer and hiding question when the value is less than 0
-    clearInterval(timeCount);
-    questionSection.style.display = "none";
-    gameOver.style.display = "block";
-  }
-}, 1000);
+//starting quiz when clicked start quiz button
+startQuiz.addEventListener("click", function () {
+    timeCount = setInterval(function () {
+        //only deduct the time until its value is upto zero
+        if (time > 0) {
+          time = time - 1;
+          timer.textContent = time;
+        } else {
+          //stopping timer and hiding question when the value is less than 0
+          clearInterval(timeCount);
+          questionSection.style.display = "none";
+          gameOver.style.display = "block";
+        }
+      }, 1000);
+  startQuiz.style.display = "none";
+  timerSection.style.display = "block";
+  questionSection.style.display = "block";
+});
