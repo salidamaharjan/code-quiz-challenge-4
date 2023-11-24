@@ -13,6 +13,7 @@ var timer = document.querySelector(".timer");
 var score = document.querySelector(".score");
 var inputLabel = document.querySelector(".input-label");
 var restartQuiz = document.querySelector(".restart-quiz");
+var highScoreTimeSection = document.querySelector(".highscore-time-section");
 
 //array of object containing question and answer
 var questionsArr = [
@@ -84,9 +85,6 @@ var questionsArr = [
 var time = 5;
 var timeCount;
 
-//timer element displays default time to start from
-timer.textContent = time;
-
 //created to change in each click
 var indexOfQuestionsArr = 0;
 
@@ -97,9 +95,7 @@ timerSection.style.display = "none";
 score.style.display = "none";
 inputLabel.style.display = "none";
 
-
 function gameEnded() {
-
   //stopping timer and hiding question when the value is less than 0
   clearInterval(timeCount);
   questionSection.style.display = "none";
@@ -164,6 +160,8 @@ answerContainer.addEventListener("click", function (event) {
 startQuizBtn.addEventListener("click", function () {
   //calling a function to show the question
   prepareQuestion();
+  //timer element displays default time to start from
+  timer.textContent = time;
   timeCount = setInterval(function () {
     //only decreases time until its value is upto zero
     if (time > 0) {
@@ -180,6 +178,6 @@ startQuizBtn.addEventListener("click", function () {
   questionSection.style.display = "block";
 });
 //reload the page when clicked restart button
-restartQuiz.addEventListener("click", function(){
-    location.reload();
-})
+restartQuiz.addEventListener("click", function () {
+  location.reload();
+});
