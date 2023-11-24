@@ -6,8 +6,10 @@ var options = document.querySelectorAll(".option");
 //adding the question to h1 tag
 questionTitle.textContent = "What is your name?";
 
-//adding answer option to li tag
-options[0].textContent = "Salida";
-options[1].textContent = "Hari";
-options[2].textContent = "Ram";
-options[3].textContent = "Maharjan";
+//array of answers created with different option
+var answersArr = ["Salida", "Hari", "Ram", "Maharjan"];
+
+//looping the option to assign a different values from answerArr
+for (var i = 0; i < answersArr.length; i++) {
+  options[i].textContent = answersArr[i];
+}
