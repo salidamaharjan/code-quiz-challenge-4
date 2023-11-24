@@ -14,21 +14,15 @@ var questionsArr = [
 ];
 prepareQuestion();
 
-
 //question and answer placed in a function to execute when called
 function prepareQuestion() {
-    //looping question
-for(var i = 0; i < questionsArr.length; i++) {
-    questionTitle.textContent = questionsArr[i];
-    console.log("questionTitle", questionTitle.textContent);
-}//looping the option to assign a different values from answerArr
-for (var i = 0; i < answersArr.length; i++) {
+  questionTitle.textContent = questionsArr[0];
+  console.log("questionTitle", questionTitle.textContent);
+  //looping the option to assign a different values from answerArr
+  for (var i = 0; i < answersArr.length; i++) {
     options[i].textContent = answersArr[i];
   }
 }
 
-
 //using add event listener to change the question on click
-answerContainer.addEventListener("click", function () {
-   
-});
+answerContainer.addEventListener("click", function () {});
