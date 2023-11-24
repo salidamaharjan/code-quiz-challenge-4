@@ -25,11 +25,11 @@ prepareQuestion();
 
 //question and answer placed in a function to execute when called
 function prepareQuestion() {
-  questionTitle.textContent = questionsArr[indexOfQuestionsArr];
+  questionTitle.textContent = questionsArr[indexOfQuestionsArr].question;
 
   //looping the option to assign a different values from answerArr
-  for (var i = 0; i < answersArr.length; i++) {
-    options[i].textContent = answersArr[i];
+  for (var i = 0; i < questionsArr[indexOfQuestionsArr].answer.length; i++) {
+    options[i].textContent = questionsArr[indexOfQuestionsArr].answer[i];
   }
 }
 
