@@ -72,15 +72,20 @@ var questionsArr = [
 //created to change in each click
 var indexOfQuestionsArr = 0;
 
+
+
+//calling a function
 prepareQuestion();
 
 //question and answer placed in a function to execute when called
 function prepareQuestion() {
   questionTitle.textContent = questionsArr[indexOfQuestionsArr].question;
 
-  //looping the option to assign a different values from answerArr
+  //looping the option to assign a different values from questionsArr
   for (var i = 0; i < questionsArr[indexOfQuestionsArr].answer.length; i++) {
     options[i].textContent = questionsArr[indexOfQuestionsArr].answer[i].name;
+    //setting data attribute to li element which is dynamic
+    options[i].setAttribute("data-correct",questionsArr[indexOfQuestionsArr].answer[i].checkCorrect);
   }
 }
 
