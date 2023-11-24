@@ -14,6 +14,9 @@ var score = document.querySelector(".score");
 var inputLabel = document.querySelector(".input-label");
 var restartQuiz = document.querySelector(".restart-quiz");
 var highScoreTimeSection = document.querySelector(".highscore-time-section");
+var userInputSection = document.querySelector(".user-input-section");
+var saveButton = document.querySelector(".save-button");
+var initial = document.querySelector("#initial");
 
 //array of object containing question and answer
 var questionsArr = [
@@ -93,7 +96,7 @@ gameOver.style.display = "none";
 questionSection.style.display = "none";
 timerSection.style.display = "none";
 score.style.display = "none";
-inputLabel.style.display = "none";
+userInputSection.style.display = "none";
 
 function gameEnded() {
   //stopping timer and hiding question when the value is less than 0
@@ -145,6 +148,7 @@ answerContainer.addEventListener("click", function (event) {
   if (indexOfQuestionsArr < questionsArr.length) {
     prepareQuestion();
   } else {
+    // this is where user successfully finished all question
     //stopping the timer when no question to display
     clearInterval(timeCount);
     questionSection.style.display = "none";
@@ -152,7 +156,7 @@ answerContainer.addEventListener("click", function (event) {
     //displaying score when no more question
     obtainedScore.textContent = time;
     score.style.display = "none";
-    inputLabel.style.display = "block";
+    userInputSection.style.display = "block";
   }
 });
 
@@ -181,3 +185,8 @@ startQuizBtn.addEventListener("click", function () {
 restartQuiz.addEventListener("click", function () {
   location.reload();
 });
+
+saveButton.addEventListener("click", function(){
+    localStorage.setItem(initial.value, time);
+    location.href = "./highscore.html";
+})
