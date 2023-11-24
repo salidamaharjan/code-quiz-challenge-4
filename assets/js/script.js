@@ -14,11 +14,6 @@ var time = 5;
 var timeCount;
 timer.textContent = time;
 
-//only displaying start button
-gameOver.style.display = "none";
-questionSection.style.display = "none";
-timerSection.style.display = "none";
-
 //array of object containing question and answer
 var questionsArr = [
   {
@@ -88,6 +83,11 @@ var questionsArr = [
 //created to change in each click
 var indexOfQuestionsArr = 0;
 
+//only displaying start button
+gameOver.style.display = "none";
+questionSection.style.display = "none";
+timerSection.style.display = "none";
+
 //calling a function
 prepareQuestion();
 
@@ -115,16 +115,18 @@ answerContainer.addEventListener("click", function (event) {
   //checking the data attribute of clicked element is correct or not to enter if block
   if (event.target.getAttribute("data-correct") === "correct") {
     display.textContent = "correct";
+    //time is added when correct answer is clicked and updated the text content of timer
     time = time + 10;
     timer.textContent = time;
   } else {
     display.textContent = "incorrect";
+    //time is deducted when incorrect answer is clicked and updates the text content of timer
     //preventing to count below 0 using Math.max() method
     time = Math.max(0, time - 5);
     timer.textContent = time;
   }
   indexOfQuestionsArr++;
-  //prepares question when index of questionArr exists
+  //calls prepare question function when index of questionArr exists
   if (indexOfQuestionsArr < questionsArr.length) {
     prepareQuestion();
   } else {
@@ -140,7 +142,7 @@ answerContainer.addEventListener("click", function (event) {
 //starting quiz when clicked start quiz button
 startQuiz.addEventListener("click", function () {
   timeCount = setInterval(function () {
-    //only deduct the time until its value is upto zero
+    //only decreases time until its value is upto zero
     if (time > 0) {
       time = time - 1;
       timer.textContent = time;
@@ -154,6 +156,7 @@ startQuiz.addEventListener("click", function () {
       obtainedScore.textContent = time;
     }
   }, 1000);
+  //displays when the start button is clicked
   startQuiz.style.display = "none";
   timerSection.style.display = "block";
   questionSection.style.display = "block";
