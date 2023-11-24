@@ -8,11 +8,7 @@ var gameOver = document.querySelector(".game-over");
 var timerSection = document.querySelector(".timer-section");
 var startQuiz = document.querySelector(".start-quiz");
 var obtainedScore = document.querySelector(".obtained-score");
-
 var timer = document.querySelector(".timer");
-var time = 5;
-var timeCount;
-timer.textContent = time;
 
 //array of object containing question and answer
 var questionsArr = [
@@ -80,6 +76,13 @@ var questionsArr = [
     ],
   },
 ];
+
+var time = 5;
+var timeCount;
+
+//timer element displays default time to start from
+timer.textContent = time;
+
 //created to change in each click
 var indexOfQuestionsArr = 0;
 
@@ -88,10 +91,7 @@ gameOver.style.display = "none";
 questionSection.style.display = "none";
 timerSection.style.display = "none";
 
-//calling a function
-prepareQuestion();
-
-//question and answer placed in a function to execute when called
+//displays a question and list of answers from array of question
 function prepareQuestion() {
   questionTitle.textContent = questionsArr[indexOfQuestionsArr].question;
 
@@ -124,8 +124,8 @@ answerContainer.addEventListener("click", function (event) {
     //preventing to count below 0 using Math.max() method
     time = Math.max(0, time - 5);
     timer.textContent = time;
-    if(time <= 0) {
-        gameOver.style.display = "block";
+    if (time <= 0) {
+      gameOver.style.display = "block";
     }
   }
   indexOfQuestionsArr++;
@@ -136,22 +136,24 @@ answerContainer.addEventListener("click", function (event) {
     //stopping the timer when no question to display
     clearInterval(timeCount);
     questionSection.style.display = "none";
+    gameOver.style.display = "none";
     //displaying score when no more question
     obtainedScore.textContent = time;
-    gameOver.style.display = "none";
   }
 });
 
 //starting quiz when clicked start quiz button
 startQuiz.addEventListener("click", function () {
+  //calling a function to show the question
+  prepareQuestion();
   timeCount = setInterval(function () {
     //only decreases time until its value is upto zero
     if (time > 0) {
       time = time - 1;
       timer.textContent = time;
-      
     } else {
-      //stopping timer and hiding question when the value is less than 0
+      //else block is executed when game is over
+      //stopping timer and hiding question when the value is less than o
       clearInterval(timeCount);
       questionSection.style.display = "none";
       gameOver.style.display = "block";
