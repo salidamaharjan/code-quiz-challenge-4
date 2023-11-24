@@ -36,5 +36,8 @@ function prepareQuestion() {
 //using add event listener to change the question on click
 answerContainer.addEventListener("click", function () {
   indexOfQuestionsArr++;
+  //prepares question when index of questionArr exists
+  if(indexOfQuestionsArr < questionsArr.length){
   prepareQuestion();
+  }
 });
