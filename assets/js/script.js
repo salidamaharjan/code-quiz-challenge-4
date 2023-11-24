@@ -179,6 +179,7 @@ startQuizBtn.addEventListener("click", function () {
   timerSection.style.display = "block";
   questionSection.style.display = "block";
 });
+//reload the page when clicked restart button
 restartQuiz.addEventListener("click", function(){
     location.reload();
 })
