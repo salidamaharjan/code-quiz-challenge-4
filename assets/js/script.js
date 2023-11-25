@@ -85,7 +85,7 @@ var questionsArr = [
   },
 ];
 
-var time = 3;
+var time = 15;
 var timeCount;
 
 //created to change in each click
@@ -145,6 +145,7 @@ answerContainer.addEventListener("click", function (event) {
     timer.textContent = time;
     if (time <= 0) {
       gameEnded();
+      return;
     }
   }
   indexOfQuestionsArr++;
