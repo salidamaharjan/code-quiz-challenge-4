@@ -1,3 +1,4 @@
+/*copied basic css reset*/
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -13,14 +14,19 @@
   margin: 0;
   padding: 0;
 }
+
+/*---added css---*/
+/* used variable for multiple used color */
 :root {
   --border-color: rgba(227, 222, 222, 0.881);
 }
+/* using class selector to design section of header */
 .highscore-time-section {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
 }
+/* selecting class of the parent element to use flex property to display behavior to its child elements */
 .start-quiz-container {
   display: flex;
   flex-direction: column;
@@ -28,6 +34,7 @@
   align-items: center;
   gap: 1rem;
 }
+/* selecting h2 of class rule-container */
 .rule-container h2 {
   font-size: 1rem;
 }
@@ -46,6 +53,7 @@
   width: fit-content;
   gap: 0.2rem;
 }
+/* selecting the id named question-section */
 #question-section {
   flex-direction: column;
   align-items: center;
@@ -82,6 +90,7 @@
   justify-content: center;
   gap: 1rem;
 }
+/* selecting hte tag or element */
 header {
   border-bottom: 1px solid var(--border-color);
   box-shadow: 0 0.5px 5px 0px rgb(219, 217, 217);
@@ -106,6 +115,7 @@ button {
   border: none;
   border-radius: 5px;
 }
+/* using pseudo class */
 button:hover {
   background-color: grey;
 }
@@ -128,4 +138,11 @@ button:hover {
 .option:hover {
   background-color: rgba(129, 76, 194, 0.712);
   font-weight: bold;
+}
+.score {
+  display: flex;
+  gap: 0.5rem;
+}
+.user-input-section h2 {
+  font-size: 1.2rem;
 }
