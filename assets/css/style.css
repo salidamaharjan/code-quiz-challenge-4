@@ -110,14 +110,14 @@ main section {
 }
 button {
   color: white;
-  background-color: black;
+  background-color: green;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
 }
 /* using pseudo class */
 button:hover {
-  background-color: grey;
+  background-color: rgba(0, 128, 0, 0.76);
 }
 .highscore-wrapper {
   display: flex;
@@ -136,7 +136,7 @@ button:hover {
   font-size: medium;
 }
 .option:hover {
-  background-color: rgba(129, 76, 194, 0.712);
+  background-color: rgba(129, 76, 194, 0.811);
   font-weight: bold;
 }
 .score {
@@ -144,5 +144,9 @@ button:hover {
   gap: 0.5rem;
 }
 .user-input-section h2 {
+  font-size: 1.2rem;
+}
+
+.game-over h2{
   font-size: 1.2rem;
 }
