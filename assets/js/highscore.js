@@ -1,6 +1,11 @@
 var highscoreSection = document.querySelector(".highscore-section");
 var goBackButton = document.querySelector(".go-back-button");
 var clearHighScoreButton = document.querySelector(".clear-highscore-button");
+var highscoreMessage = document.querySelector(".highscore-message");
+
+if(localStorage.length > 0){
+highscoreMessage.style.display = "none";
+}
 
 for (var i = 0; i < localStorage.length; i++) {
   var keyName = localStorage.key(i);
@@ -14,4 +19,10 @@ for (var i = 0; i < localStorage.length; i++) {
 }
 goBackButton.addEventListener("click", function(){
   location.href = "./index.html";
+});
+
+clearHighScoreButton.addEventListener("click", function(){
+  localStorage.clear();
+  location.reload();
+  highscoreMessage.style.display = "block";
 });

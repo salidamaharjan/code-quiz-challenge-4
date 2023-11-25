@@ -103,8 +103,6 @@ function gameEnded() {
   clearInterval(timeCount);
   questionSection.style.display = "none";
   gameOver.style.display = "flex";
-  //display score when time out
-  obtainedScore.textContent = time;
 }
 //displays a question and list of answers from array of question
 function prepareQuestion() {
@@ -161,7 +159,7 @@ answerContainer.addEventListener("click", function (event) {
     gameOver.style.display = "none";
     //displaying score when no more question
     obtainedScore.textContent = time;
-    score.style.display = "none";
+    score.style.display = "flex";
     userInputSection.style.display = "flex";
   }
 });
