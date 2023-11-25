@@ -85,7 +85,7 @@ var questionsArr = [
   },
 ];
 
-var time = 60;
+var time = 3;
 var timeCount;
 
 //created to change in each click
@@ -102,7 +102,7 @@ function gameEnded() {
   //stopping timer and hiding question when the value is less than 0
   clearInterval(timeCount);
   questionSection.style.display = "none";
-  gameOver.style.display = "block";
+  gameOver.style.display = "flex";
   //display score when time out
   obtainedScore.textContent = time;
 }

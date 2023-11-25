@@ -58,7 +58,8 @@
 
 .user-input-section {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
 }
 .highscore-section {
@@ -67,4 +68,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem
 }
