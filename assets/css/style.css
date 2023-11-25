@@ -13,16 +13,17 @@
   margin: 0;
   padding: 0;
 }
+:root {
+    --border-color: rgba(227, 222, 222, 0.881);
+}
 .highscore-time-section {
   padding: 1rem;
-  margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
 }
 .start-quiz-container {
   display: flex;
   flex-direction: column;
-  height: 30vh;
   justify-content: center;
   align-items: center;
   gap: 1rem;
@@ -63,12 +64,12 @@
     gap: 0.5rem;
 }
 .highscore-section {
-    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 .game-over {
     display: flex;
@@ -81,6 +82,43 @@
     justify-content: center;
     gap: 1rem;
 }
-.score {
-    
+header {
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 0.5px 5px 0px rgb(219, 217, 217);
+    margin-bottom: 2rem;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main section {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0.5px 10px 0px var(--border-color);
+    border-radius: 5px;
+    width: 70%;
+    padding: 1rem;
+}
+button {
+    color: white;
+    background-color: black;
+    padding: 0.2rem 0.8rem;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: grey;
+}
+.highscore-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0.5px 10px 0px var(--border-color);
+    border-radius: 5px;
+    width: 50%;
+    padding: 1rem;
+    margin: 10% 30%;
+
 }
