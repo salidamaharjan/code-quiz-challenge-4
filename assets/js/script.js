@@ -85,7 +85,7 @@ var questionsArr = [
   },
 ];
 
-var time = 6000;
+var time = 60;
 var timeCount;
 
 //created to change in each click
@@ -133,8 +133,14 @@ answerContainer.addEventListener("click", function (event) {
     //time is added when correct answer is clicked and updated the text content of timer
     time = time + 10;
     timer.textContent = time;
+    setTimeout(function(){
+        display.textContent = ""
+    },300);
   } else {
     display.textContent = "incorrect";
+    setTimeout(function(){
+        display.textContent = ""
+    },300);
     //time is deducted when incorrect answer is clicked and updates the text content of timer
     //preventing to count below 0 using Math.max() method
     time = Math.max(0, time - 5);
@@ -156,7 +162,7 @@ answerContainer.addEventListener("click", function (event) {
     //displaying score when no more question
     obtainedScore.textContent = time;
     score.style.display = "none";
-    userInputSection.style.display = "block";
+    userInputSection.style.display = "flex";
   }
 });
 

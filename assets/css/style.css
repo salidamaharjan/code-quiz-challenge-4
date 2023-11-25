@@ -51,3 +51,13 @@
   gap: 1rem;
 }
 
+.display-correctness {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.user-input-section {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
