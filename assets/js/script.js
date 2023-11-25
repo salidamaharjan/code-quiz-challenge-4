@@ -21,68 +21,110 @@ var initial = document.querySelector("#initial");
 //array of object containing question and answer
 var questionsArr = [
   {
-    question: "What is your name?",
+    question: "What is commonly used coding language?",
     answer: [
       {
-        name: "Salida",
+        name: "JavaScript",
         checkCorrect: "correct",
       },
       {
-        name: "Hari",
+        name: "For loop",
         checkCorrect: "incorrect",
       },
       {
-        name: "Ram",
+        name: "Script",
         checkCorrect: "incorrect",
       },
       {
-        name: "Maharjan",
+        name: "String",
         checkCorrect: "incorrect",
       },
     ],
   },
   {
-    question: "Where do you live?",
+    question: "Commonly used data types do not include?",
     answer: [
       {
-        name: "UK",
+        name: "Booleans",
         checkCorrect: "incorrect",
       },
       {
-        name: "USA",
+        name: "Alerts",
         checkCorrect: "correct",
       },
       {
-        name: "France",
+        name: "Strings",
         checkCorrect: "incorrect",
       },
       {
-        name: "Italy",
+        name: "Numbers",
         checkCorrect: "incorrect",
       },
     ],
   },
   {
-    question: "What is you hobby?",
+    question: "The index of an array starts with?",
     answer: [
       {
-        name: "Cooking",
+        name: "1",
         checkCorrect: "incorrect",
       },
       {
-        name: "Singing",
+        name: "-1",
         checkCorrect: "incorrect",
       },
       {
-        name: "Dancing",
+        name: "i",
         checkCorrect: "incorrect",
       },
       {
-        name: "Listening Music",
+        name: "0",
         checkCorrect: "correct",
       },
     ],
   },
+  {
+    question: "The condition in if/else statement inclosed within?",
+    answer: [
+      {
+        name: "quotes",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "curly brackets",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "parentheses",
+        checkCorrect: "correct",
+      },
+      {
+        name: "square brackets",
+        checkCorrect: "incorrect",
+      },
+    ],
+  },
+  {
+    question: "What is not semantic html element",
+    answer: [
+      {
+        name: "<header>",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "<nav>",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "<section>",
+        checkCorrect: "incorrect",
+      },
+      {
+        name: "<div>",
+        checkCorrect: "incorrect",
+      },
+    ],
+  }
 ];
 
 var time = 15;
