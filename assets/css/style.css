@@ -75,3 +75,8 @@
     align-items: center;
     gap: 1rem
 }
+.go-back-and-clear-button-section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

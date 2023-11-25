@@ -1,4 +1,6 @@
 var highscoreSection = document.querySelector(".highscore-section");
+var goBackButton = document.querySelector(".go-back-button");
+var clearHighScoreButton = document.querySelector(".clear-highscore-button");
 
 for (var i = 0; i < localStorage.length; i++) {
   var keyName = localStorage.key(i);
@@ -10,3 +12,6 @@ for (var i = 0; i < localStorage.length; i++) {
   divEl.appendChild(spanEl);
   spanEl.textContent = keyName + " " + value;
 }
+goBackButton.addEventListener("click", function(){
+  location.href = "./index.html";
+});
