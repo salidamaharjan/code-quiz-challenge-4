@@ -124,7 +124,7 @@ var questionsArr = [
         checkCorrect: "incorrect",
       },
     ],
-  }
+  },
 ];
 
 var time = 15;
@@ -173,14 +173,14 @@ answerContainer.addEventListener("click", function (event) {
     //time is added when correct answer is clicked and updated the text content of timer
     time = time + 10;
     timer.textContent = time;
-    setTimeout(function(){
-        display.textContent = ""
-    },300);
+    setTimeout(function () {
+      display.textContent = "";
+    }, 300);
   } else {
     display.textContent = "incorrect";
-    setTimeout(function(){
-        display.textContent = ""
-    },300);
+    setTimeout(function () {
+      display.textContent = "";
+    }, 300);
     //time is deducted when incorrect answer is clicked and updates the text content of timer
     //preventing to count below 0 using Math.max() method
     time = Math.max(0, time - 5);
@@ -233,7 +233,11 @@ restartQuiz.addEventListener("click", function () {
   location.reload();
 });
 
-saveButton.addEventListener("click", function () {
-  localStorage.setItem(initial.value, time);
+saveButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (initial.value.trim() === "") {
+    return;
+  }
+  localStorage.setItem(initial.value.trim(), time);
   location.href = "./highscore.html";
 });
