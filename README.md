@@ -1,7 +1,7 @@
 # code-quiz-challenge-4
 **[Code Quiz](https://salidamaharjan.github.io/code-quiz-challenge-4/)**
 
-**[My GitHub Page Link](https://github.com/salidamaharjan/code-quiz-challenge-4)**
+**[My GitHub Repo Link](https://github.com/salidamaharjan/code-quiz-challenge-4)**
 
 ## Description
 * This project builds multiple choices question timed quiz and stores the scores.
